@@ -5,7 +5,7 @@ license: MIT
 compatibility: Needs a browser the agent can drive, Python 3.10 or later, and a way to read the test inbox for verification emails. Email and Slack delivery need a mail tool or a Slack webhook.
 metadata:
   author: Lexi Cardia
-  version: "0.1.1"
+  version: "0.1.2"
 ---
 
 # Onboarding audit
