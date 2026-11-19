@@ -53,6 +53,10 @@ pytest -q
 python -c "from skills_ref.cli import main; main()" validate skills/onboarding-audit
 ```
 
+## Updates
+
+Installed copies update only when the version number goes up. For each release, raise `version` in `plugin.json`, `.claude-plugin/plugin.json` and both `SKILL.md` files, then merge to `main`. CI fails a pull request that changes the plugin without raising the version. Claude's plugin directory picks up new commits on its own after a security scan, and its marketplace updates installed copies automatically. People who installed straight from this repo can turn on auto-update in `/plugin` under Marketplaces, or run `/plugin marketplace update onboarding-audit`.
+
 ## License
 
 MIT
