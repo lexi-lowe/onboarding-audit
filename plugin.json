@@ -3,11 +3,22 @@
   "name": "onboarding-audit",
   "version": "0.1.0",
   "description": "Sign up for your product as a new user every month, by persona, and get a ranked friction report with screenshots, time to value and prefilled tickets for GitHub, Linear or Jira.",
-  "author": { "name": "Lexi Cardia", "url": "https://lexicardia.com" },
+  "author": {
+    "name": "Lexi Cardia",
+    "url": "https://lexicardia.com"
+  },
   "homepage": "https://github.com/lexi-lowe/onboarding-audit",
   "repository": "https://github.com/lexi-lowe/onboarding-audit",
   "license": "MIT",
-  "keywords": ["onboarding", "signup", "activation", "growth", "product", "audit", "dogfooding"],
+  "keywords": [
+    "onboarding",
+    "signup",
+    "activation",
+    "growth",
+    "product",
+    "audit",
+    "dogfooding"
+  ],
   "extensions": {
     "com.openai": {
       "onboardingSkill": "./skills/onboarding-audit-setup/SKILL.md",
