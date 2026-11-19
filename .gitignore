@@ -6,3 +6,4 @@ out/
 onboarding-audit.config.json
 .env
 .DS_Store
+dist/

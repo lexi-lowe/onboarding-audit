@@ -53,9 +53,13 @@ pytest -q
 python -c "from skills_ref.cli import main; main()" validate skills/onboarding-audit
 ```
 
+## What it runs and sends
+
+The skills drive a browser on the signup flow you name and read the test inbox you set up. The bundled Python renders the report locally and needs no network, with two opt-in exceptions. `--dedupe` reads your tracker's existing issues to avoid duplicates: GitHub's REST API (with `GITHUB_TOKEN` if the repo is private), Linear's API with `LINEAR_API_KEY`, or Jira's API with `JIRA_EMAIL` and `JIRA_API_TOKEN`. It only reads. `--send-slack` posts the summary to the webhook in `SLACK_WEBHOOK_URL`. Each credential goes only to its own service. The report's ticket buttons open a prefilled new-issue page in your tracker; nothing is filed until you submit it.
+
 ## Updates
 
-Installed copies update only when the version number goes up. For each release, raise `version` in `plugin.json`, `.claude-plugin/plugin.json` and both `SKILL.md` files, then merge to `main`. CI fails a pull request that changes the plugin without raising the version. Claude's plugin directory picks up new commits on its own after a security scan, and its marketplace updates installed copies automatically. People who installed straight from this repo can turn on auto-update in `/plugin` under Marketplaces, or run `/plugin marketplace update onboarding-audit`.
+Installed copies update only when the version number goes up. For each release, raise `version` in `plugin.json`, `.claude-plugin/plugin.json`, `.codex-plugin/plugin.json` and both `SKILL.md` files, then merge to `main`. CI fails a pull request that changes the plugin without raising the version. For the ChatGPT and Codex directory, build a new ZIP with `python tools/package_codex.py` and upload it to the existing plugin; each upload is reviewed again. People who installed in Claude Code straight from this repo can turn on auto-update in `/plugin` under Marketplaces, or run `/plugin marketplace update onboarding-audit`.
 
 ## License
 
