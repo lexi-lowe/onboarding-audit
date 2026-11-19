@@ -9,6 +9,7 @@ def versions():
     out = {
         "plugin.json": json.loads((ROOT / "plugin.json").read_text())["version"],
         ".claude-plugin/plugin.json": json.loads((ROOT / ".claude-plugin/plugin.json").read_text())["version"],
+        ".codex-plugin/plugin.json": json.loads((ROOT / ".codex-plugin/plugin.json").read_text())["version"],
     }
     for skill in sorted((ROOT / "skills").glob("*/SKILL.md")):
         m = re.search(r'^\s+version:\s*"?([^"\n]+)"?\s*$', skill.read_text(), re.M)

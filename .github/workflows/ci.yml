@@ -20,15 +20,15 @@ jobs:
           for d in skills/*/; do python -c "from skills_ref.cli import main; main()" validate "$d"; done
       - name: Check manifests parse
         run: |
-          python -c "import json; [json.load(open(f)) for f in ['plugin.json','.claude-plugin/plugin.json','.claude-plugin/marketplace.json','.agents/plugins/marketplace.json']]"
+          python -c "import json; [json.load(open(f)) for f in ['plugin.json','.claude-plugin/plugin.json','.codex-plugin/plugin.json','.claude-plugin/marketplace.json','.agents/plugins/marketplace.json']]"
       - name: Version raised when the plugin changes
         if: github.event_name == 'pull_request'
         run: |
           base=origin/${{ github.base_ref }}
-          if git diff --quiet "$base"...HEAD -- skills plugin.json .claude-plugin; then exit 0; fi
+          if git diff --quiet "$base"...HEAD -- skills assets plugin.json .claude-plugin .codex-plugin; then exit 0; fi
           old=$(git show "$base":plugin.json | python -c "import json,sys; print(json.load(sys.stdin)['version'])")
           new=$(python -c "import json; print(json.load(open('plugin.json'))['version'])")
           if [ "$old" = "$new" ]; then
-            echo "::error::The plugin changed but its version is still $new. Raise it in plugin.json, .claude-plugin/plugin.json and each SKILL.md, or installed users won't get the update."
+            echo "::error::The plugin changed but its version is still $new. Raise it in plugin.json, .claude-plugin/plugin.json, .codex-plugin/plugin.json and each SKILL.md, or installed users won't get the update."
             exit 1
           fi
