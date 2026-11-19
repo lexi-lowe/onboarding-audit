@@ -1,0 +1,17 @@
+{
+  "name": "onboarding-audit",
+  "owner": {
+    "name": "Lexi Cardia",
+    "url": "https://lexicardia.com"
+  },
+  "plugins": [
+    {
+      "name": "onboarding-audit",
+      "source": "./",
+      "description": "Monthly signup and activation audits with ticket-ready findings."
+    }
+  ],
+  "metadata": {
+    "description": "Monthly signup and activation audits with ticket-ready findings."
+  }
+}

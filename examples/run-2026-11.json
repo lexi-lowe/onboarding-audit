@@ -1,0 +1,84 @@
+{
+ "product": "Big Roots",
+ "month": "Nov 2026",
+ "report_url": "https://example.com/reports/bigroots-2026-11",
+ "findings": [
+  {
+   "key": "gift-forme-carryover",
+   "severity": "High",
+   "confidence": "Certain",
+   "title": "Gift to \"It's for me\" switch keeps the recipient's name and email as the buyer's",
+   "steps": "Click Give it as a gift, fill Parents' names and Their email, then pick It's for me.",
+   "expected": "Your name and Your email start empty (or keep the buyer's own email).",
+   "actual": "They hold the parents' name and email, so the building link goes to the parents.",
+   "fix": "Keep separate state per option, or clear both fields when switching.",
+   "report_anchor": "finding-1"
+  },
+  {
+   "key": "mobile-pay-before-preview",
+   "severity": "High",
+   "confidence": "Certain",
+   "title": "On phones, Pay $58 sits above the book preview",
+   "steps": "At 375 px wide, build a book and open Review and order.",
+   "expected": "The buyer sees their book before reaching Pay.",
+   "actual": "Pay is at about 2,350 px down the page; Your book starts at about 2,509 px.",
+   "fix": "On small screens add a Preview your book step or a sticky preview button above the order form.",
+   "report_anchor": "finding-2"
+  },
+  {
+   "key": "gift-date-no-default",
+   "severity": "Medium",
+   "confidence": "Certain",
+   "title": "Gift send date has no default, no minimum and no hint",
+   "steps": "Open Give it as a gift and look at Send the gift card on.",
+   "expected": "Defaults to today, rejects past dates, says when it sends.",
+   "actual": "Blank, accepts past dates (no min), nothing says what blank means. [Guessing] on server handling of blank or past dates.",
+   "fix": "Default to today, set min to today, show 'Sends today' under the field.",
+   "report_anchor": "finding-3"
+  },
+  {
+   "key": "page-count-mismatch",
+   "severity": "Medium",
+   "confidence": "Certain",
+   "title": "Two page counts disagree: 20 of 20 pages vs 7 of 13",
+   "steps": "Build a book with 8 people and look at the preview.",
+   "expected": "One consistent count.",
+   "actual": "Badge says 20 of 20 pages; the page turner says N of 13.",
+   "fix": "Count spreads in the turner (Spread 7 of 13), or drop the badge once the book is full.",
+   "report_anchor": "finding-4"
+  },
+  {
+   "key": "forme-gift-copy",
+   "severity": "Medium",
+   "confidence": "Certain",
+   "title": "\"It's for me\" keeps the gift header copy",
+   "steps": "Open Give it as a gift, pick It's for me.",
+   "expected": "Header describes building it yourself.",
+   "actual": "Header still says 'The parents get a link to add their photos.'",
+   "fix": "Swap to 'You get a link to build it whenever the photos are ready.'",
+   "report_anchor": "finding-5"
+  },
+  {
+   "key": "gift-extra-copies-ship",
+   "severity": "Low",
+   "confidence": "Certain",
+   "title": "Gift form doesn't say where extra copies ship",
+   "steps": "Open Give it as a gift, look at Extra copies.",
+   "expected": "Says copies ship with the book to the parents.",
+   "actual": "No address asked and no note on where copies go.",
+   "fix": "Add 'Extra copies ship with the book to the parents.'",
+   "report_anchor": "finding-6"
+  },
+  {
+   "key": "gift-never-built",
+   "severity": "Low",
+   "confidence": "Certain",
+   "title": "Gift panel doesn't say what happens if the parents never build",
+   "steps": "Read the Give it as a gift panel.",
+   "expected": "Says whether the gift expires or can be refunded.",
+   "actual": "Nothing on the panel. [Guessing] whether the FAQ covers it.",
+   "fix": "Add one line on expiry and refunds near Pay.",
+   "report_anchor": "finding-7"
+  }
+ ]
+}

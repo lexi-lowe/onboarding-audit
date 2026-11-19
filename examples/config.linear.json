@@ -1,0 +1,17 @@
+{
+ "tracker": {
+  "type": "linear",
+  "team": "ENG",
+  "labels": [
+   "Bug",
+   "signup-audit"
+  ]
+ },
+ "delivery": {
+  "type": "slack",
+  "webhook_env": "SLACK_WEBHOOK_URL"
+ },
+ "personas": [],
+ "taste": [],
+ "runs_per_persona": 1
+}

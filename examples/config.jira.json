@@ -1,0 +1,18 @@
+{
+ "tracker": {
+  "type": "jira",
+  "base_url": "https://your-site.atlassian.net",
+  "project_id": 10000,
+  "issuetype_id": 10004,
+  "labels": [
+   "signup-audit"
+  ]
+ },
+ "delivery": {
+  "type": "slack",
+  "webhook_env": "SLACK_WEBHOOK_URL"
+ },
+ "personas": [],
+ "taste": [],
+ "runs_per_persona": 1
+}
