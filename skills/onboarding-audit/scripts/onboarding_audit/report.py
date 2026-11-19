@@ -48,7 +48,7 @@ h2 {{ font-size:20px; font-weight:600; margin:40px 0 12px; }} h3 {{ font-weight:
 .high {{ background:var(--high); }} .med {{ background:var(--med); }} .low {{ background:var(--low); }}
 .finding p {{ margin:6px 0; }} .fix, .what {{ color:var(--muted); }} .what {{ font-size:13px; margin:0 0 6px; }}
 .data {{ font-size:13px; background:var(--tint); padding:6px 10px; border-radius:2px; }}
-figure {{ margin:12px 0 0; }} figure img {{ width:100%; border:1px solid var(--line); border-radius:var(--radius); display:block; }}
+figure {{ margin:12px 0 0; }} figure img {{ max-width:100%; max-height:520px; width:auto; height:auto; border:1px solid var(--line); border-radius:var(--radius); display:block; }}
 figcaption {{ font-size:13px; color:var(--muted); margin-top:6px; }}
 table {{ width:100%; border-collapse:collapse; background:var(--card); border:1px solid var(--line); font-size:14px; }}
 th, td {{ text-align:left; padding:10px 12px; border-bottom:1px solid var(--line); vertical-align:top; }} th {{ background:#f1f3f6; font-weight:600; }}

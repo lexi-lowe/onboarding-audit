@@ -5,7 +5,7 @@ license: MIT
 compatibility: Works in any agent that can write a file. Reading the product's colours for the report theme needs a browser.
 metadata:
   author: Lexi Cardia
-  version: "0.1.1"
+  version: "0.1.2"
 ---
 
 # Set up an onboarding audit

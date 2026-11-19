@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "onboarding-audit",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Sign up for your product as a new user every month, by persona, and get a ranked friction report with screenshots, time to value and prefilled tickets for GitHub, Linear or Jira.",
   "author": {
     "name": "Lexi Cardia",
