@@ -1,0 +1,21 @@
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install pytest skills-ref
+      - run: pytest -q
+      - name: Validate skills
+        run: |
+          for d in skills/*/; do python -c "from skills_ref.cli import main; main()" validate "$d"; done
+      - name: Check manifests parse
+        run: |
+          python -c "import json; [json.load(open(f)) for f in ['plugin.json','.claude-plugin/plugin.json','.claude-plugin/marketplace.json','.agents/plugins/marketplace.json']]"

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "onboarding-audit",
+  "version": "0.1.0",
+  "description": "Sign up for your product as a new user every month, by persona, and get a ranked friction report with screenshots, time to value and prefilled tickets for GitHub, Linear or Jira.",
+  "author": { "name": "Lexi Cardia", "url": "https://lexicardia.com" },
+  "homepage": "https://github.com/lexi-lowe/onboarding-audit",
+  "repository": "https://github.com/lexi-lowe/onboarding-audit",
+  "license": "MIT",
+  "keywords": ["onboarding", "signup", "activation", "growth", "product", "audit", "dogfooding"],
+  "extensions": {
+    "com.openai": {
+      "onboardingSkill": "./skills/onboarding-audit-setup/SKILL.md",
+      "interface": {
+        "displayName": "Onboarding Audit",
+        "shortDescription": "Monthly signup and activation audits with ticket-ready findings",
+        "longDescription": "Signs up for your product the way a new customer would, for each persona you define, and reports where people get stuck: ranked by what actually happened, with screenshots, measured waits, estimated hands-on time, and one-click prefilled tickets for GitHub, Linear or Jira. Never types passwords or codes, and stops before payment unless you set a discount link.",
+        "developerName": "Lexi Cardia",
+        "category": "Productivity",
+        "websiteURL": "https://github.com/lexi-lowe/onboarding-audit",
+        "defaultPrompt": "Run an onboarding audit of my product"
+      }
+    }
+  }
+}

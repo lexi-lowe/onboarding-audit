@@ -1,0 +1,53 @@
+{
+ "product": "Acme Analytics",
+ "start_url": "https://acme.example/signup",
+ "permission": {
+  "confirmed": true,
+  "note": "We run this product"
+ },
+ "activation": {
+  "step": "First dashboard",
+  "description": "A new user sees their own data in a dashboard"
+ },
+ "test_identity": {
+  "email_pattern": "audit+{persona}-{yyyymm}@yourdomain.com",
+  "inbox": "Catch-all on yourdomain.com forwarding to a mailbox the agent can read"
+ },
+ "payment": {
+  "mode": "stop"
+ },
+ "personas": [
+  {
+   "id": "work-email",
+   "label": "Team lead, work email",
+   "email": "work",
+   "device": "desktop"
+  },
+  {
+   "id": "mobile-personal",
+   "label": "Founder on a phone, Gmail",
+   "email": "personal",
+   "device": "mobile"
+  }
+ ],
+ "runs_per_persona": 1,
+ "taste": [],
+ "tracker": {
+  "type": "github",
+  "repo": "acme/app",
+  "labels": [
+   "bug",
+   "signup-audit"
+  ]
+ },
+ "delivery": {
+  "type": "email",
+  "to": "you@yourdomain.com"
+ },
+ "report": {
+  "tracker_notice": false,
+  "auditor": "",
+  "permission_note": ""
+ },
+ "theme": {}
+}

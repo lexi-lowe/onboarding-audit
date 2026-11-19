@@ -1,0 +1,196 @@
+{
+ "product": "Pipewell",
+ "month": "Nov 2026",
+ "report_url": "https://example.com/reports/pipewell-2026-11",
+ "taste": [
+  "Plain, calm product copy: no exclamation marks",
+  "One number for one fact everywhere"
+ ],
+ "runs": [
+  {
+   "persona": {
+    "id": "personal-email",
+    "label": "Personal Gmail signup",
+    "email": "personal",
+    "device": "desktop"
+   },
+   "funnel": {
+    "activation_step": "First sync",
+    "steps": [
+     {
+      "name": "Sign up",
+      "screens": 2,
+      "clicks": 3,
+      "fields": 1,
+      "chars": 40
+     },
+     {
+      "name": "Verify email",
+      "screens": 1,
+      "system_wait_s": 64800,
+      "outcome": "blocked",
+      "note": "No email after 18 hours"
+     }
+    ]
+   },
+   "findings": [
+    {
+     "key": "gmail-no-verification-email",
+     "confidence": "Certain",
+     "title": "Gmail signups never get a verification email",
+     "steps": "See report.",
+     "expected": "",
+     "actual": "Signup returns 200; no email in inbox or spam after 18 hours.",
+     "fix": "Say 'use your work email' before submit, or fix delivery.",
+     "observed": "blocked"
+    }
+   ]
+  },
+  {
+   "persona": {
+    "id": "work-email",
+    "label": "Work email, no data warehouse",
+    "email": "work",
+    "device": "desktop",
+    "traits": {
+     "has_warehouse": false
+    }
+   },
+   "funnel": {
+    "activation_step": "First sync",
+    "steps": [
+     {
+      "name": "Sign up",
+      "screens": 2,
+      "clicks": 3,
+      "fields": 1,
+      "chars": 20
+     },
+     {
+      "name": "Verify email",
+      "screens": 1,
+      "clicks": 1,
+      "system_wait_s": 10,
+      "handoff": true
+     },
+     {
+      "name": "Onboarding questions",
+      "screens": 3,
+      "clicks": 3,
+      "choices": 3
+     },
+     {
+      "name": "Pick a source",
+      "screens": 3,
+      "clicks": 5,
+      "fields": 1,
+      "chars": 13,
+      "choices": 2
+     },
+     {
+      "name": "Connect Google Sheets",
+      "screens": 2,
+      "clicks": 6,
+      "fields": 2,
+      "chars": 110,
+      "choices": 1,
+      "system_wait_s": 40,
+      "handoff": true,
+      "outcome": "workaround",
+      "note": "Two contradictory test errors before passing"
+     },
+     {
+      "name": "Choose destination",
+      "screens": 3,
+      "clicks": 4,
+      "choices": 1,
+      "outcome": "blocked",
+      "note": "No managed warehouse; loops to Pipewell's Marketplace listing"
+     },
+     {
+      "name": "First sync"
+     }
+    ]
+   },
+   "findings": [
+    {
+     "key": "no-warehouse-dead-end",
+     "confidence": "Certain",
+     "title": "\"I don't have one\" sends trial users to buy Pipewell again",
+     "steps": "See report.",
+     "expected": "",
+     "actual": "Partner Cloud link opens Pipewell's own Marketplace listing.",
+     "observed": "blocked"
+    },
+    {
+     "key": "signin-one-browser",
+     "confidence": "Certain",
+     "title": "Sign-in only works in the browser that clicked the email link",
+     "steps": "See report.",
+     "expected": "",
+     "actual": "No password; original tab never updates.",
+     "observed": "workaround"
+    },
+    {
+     "key": "sheets-contradictory-error",
+     "confidence": "Certain",
+     "title": "Google Sheets test shows two contradictory errors",
+     "steps": "See report.",
+     "expected": "",
+     "actual": "'Unable to find sheet' plus 'rate limit' on a new connection.",
+     "observed": "error"
+    },
+    {
+     "key": "role-question-no-skip",
+     "confidence": "Certain",
+     "title": "Role question has 15 options and no Skip",
+     "steps": "See report.",
+     "expected": "",
+     "actual": "Three questions before value; role can't be skipped.",
+     "observed": "extra-effort"
+    },
+    {
+     "key": "source-second-guessed",
+     "confidence": "Certain",
+     "title": "The flow talks users out of the source they picked",
+     "steps": "See report.",
+     "expected": "",
+     "actual": "Confirm screen, then a modal suggesting other sources as 'your picks'.",
+     "observed": "extra-effort"
+    },
+    {
+     "key": "onboarding-aria-missing-words",
+     "confidence": "Certain",
+     "title": "Screen readers lose the bold words in answers",
+     "steps": "See report.",
+     "expected": "",
+     "actual": "Reads 'I have an and need to evaluate Pipewell.'",
+     "category": "accessibility",
+     "observed": "polish"
+    },
+    {
+     "key": "exclamation-copy",
+     "confidence": "Certain",
+     "title": "Exclamation marks in onboarding copy",
+     "steps": "See report.",
+     "expected": "",
+     "actual": "'Welcome to Pipewell!' and 'Great! Let's help get you set up now.'",
+     "category": "taste",
+     "preference": "Plain, calm product copy: no exclamation marks",
+     "observed": "polish"
+    },
+    {
+     "key": "connector-counts",
+     "confidence": "Certain",
+     "title": "Four different connector counts",
+     "steps": "See report.",
+     "expected": "",
+     "actual": "790, 753, 700+ and '+500 more'.",
+     "category": "taste",
+     "preference": "One number for one fact everywhere",
+     "observed": "polish"
+    }
+   ]
+  }
+ ]
+}
